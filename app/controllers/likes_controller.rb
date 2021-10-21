@@ -7,6 +7,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
+    
     tweet = Tweet.find(params[:id])
     user = User.find_by(uid: session[:login_uid])
     tweet.likes.find_by(user_id: user.id).destroy
